@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+*.h5
+*.pt
+*.pth
+*.ckpt
+generator.log
