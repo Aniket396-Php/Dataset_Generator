@@ -1,7 +1,36 @@
 # Viking History QA Dataset Generator
 
+
 ## Overview
-A production-grade Python application designed to automatically generate a high-quality Question-Answer dataset about Viking History using a local Ollama model. The system intelligently produces unique QA pairs, filters out duplicates, and checkpoints its progress, outputting the result directly to a CSV file.
+A scalable production-grade Python LLM-powered data generation pipeline that can produce 10K–20K+ validated, deduplicated domain-specific QA pairs, transforming raw knowledge into training-ready datasets for specialized AI models.
+
+
+## Project:
+
+Viking History QA Dataset Generator
+
+### Problem
+
+Generating thousands of high-quality question-answer pairs manually is slow and difficult.
+
+### Solution
+
+A Python pipeline using a locally hosted LLM through Ollama to generate, validate, deduplicate, and save QA pairs into CSV format.
+
+### Architecture
+Prompt Builder
+      ↓
+Ollama / Qwen
+      ↓
+JSON Parser
+      ↓
+Validator
+      ↓
+Duplicate Detector
+      ↓
+CSV Manager
+      ↓
+Dataset
 
 ## Features
 - **Automated Generation**: Iteratively creates QA pairs based on a defined topic.
@@ -11,8 +40,6 @@ A production-grade Python application designed to automatically generate a high-
 - **Progress Tracking**: Real-time progress visualization using `tqdm`.
 - **Modular Architecture**: Well-separated components for prompt building, validation, and data management.
 
-## Architecture
-Configuration → Prompt Builder → Ollama Client → JSON Parser → Validator → Duplicate Detector → CSV Manager
 
 ## Tech Stack
 - **Python** (Core language)
@@ -24,7 +51,6 @@ Configuration → Prompt Builder → Ollama Client → JSON Parser → Validator
 ## Installation
 1. Ensure you have [Ollama](https://ollama.ai/) installed and running locally with the required model:
    ```bash
-   ollama run qwen3:8b
    ```
 2. Clone the repository and navigate to the project directory.
 3. Install the required Python dependencies:
